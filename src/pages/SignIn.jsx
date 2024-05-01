@@ -78,65 +78,63 @@ export default function SignIn() {
     )
 
     return (
-        <ThemeProvider theme={defaultTheme}>
-            <Container component="main" maxWidth="xs" sx={{height:'100vh',display:'flex'}}>
-                <CssBaseline />
-                <Box
-                    sx={{
-                        display: 'flex',
-                        flexDirection: 'column',
-                        alignItems: 'center',
-                        justifyContent:'center'
-                    }}
-                >
-                    <Avatar sx={{ m: 1, bgcolor: 'secondary.main' }}>
-                        <LockOutlinedIcon />
-                    </Avatar>
-                    <Typography component="h1" variant="h5">
-                        Sign in
-                    </Typography>
-                    {serverErr ? <Alert sx={{mt: 3, width: '100%'}} severity="error">{serverErr}</Alert> : ''}
-                    <Box component="form" onSubmit={handleSubmit} noValidate sx={{ mt: 1 }}>
-                        <TextField
-                            margin="normal"
-                            required
-                            fullWidth
-                            id="login"
-                            label="Login"
-                            name="login"
-                            value={user}
-                            onChange={event => handleUserInput(event,setUser,setLoginValid,setLoginError,[])}
-                            autoFocus
-                            error={!loginValid}
-                            helperText={loginError}
-                        />
-                        <TextField
-                            margin="normal"
-                            required
-                            fullWidth
-                            name="password"
-                            label="Password"
-                            type="password"
-                            id="password"
-                            onChange={event => handlePasswordInput(event,setPassword,setPassValid,setPassError)}
-                            value={password}
-                            error={!passValid}
-                            helperText={passError}
-                        />
+        <Container component="main" maxWidth="xs" sx={{height:'100vh',display:'flex'}}>
+            <CssBaseline />
+            <Box
+                sx={{
+                    display: 'flex',
+                    flexDirection: 'column',
+                    alignItems: 'center',
+                    justifyContent:'center'
+                }}
+            >
+                <Avatar sx={{ m: 1, bgcolor: 'secondary.main' }}>
+                    <LockOutlinedIcon />
+                </Avatar>
+                <Typography component="h1" variant="h5">
+                    Sign in
+                </Typography>
+                {serverErr ? <Alert sx={{mt: 3, width: '100%'}} severity="error">{serverErr}</Alert> : ''}
+                <Box component="form" onSubmit={handleSubmit} noValidate sx={{ mt: 1 }}>
+                    <TextField
+                        margin="normal"
+                        required
+                        fullWidth
+                        id="login"
+                        label="Login"
+                        name="login"
+                        value={user}
+                        onChange={event => handleUserInput(event,setUser,setLoginValid,setLoginError,[])}
+                        autoFocus
+                        error={!loginValid}
+                        helperText={loginError}
+                    />
+                    <TextField
+                        margin="normal"
+                        required
+                        fullWidth
+                        name="password"
+                        label="Password"
+                        type="password"
+                        id="password"
+                        onChange={event => handlePasswordInput(event,setPassword,setPassValid,setPassError)}
+                        value={password}
+                        error={!passValid}
+                        helperText={passError}
+                    />
 
-                        {isLoading ? loadingBlock : <Button
-                            disabled={!(loginValid && passValid && user.length>1 && password.length>1)}
-                            type="submit"
-                            fullWidth
-                            variant="contained"
+                    {isLoading ? loadingBlock : <Button
+                        disabled={!(loginValid && passValid && user.length>1 && password.length>1)}
+                        type="submit"
+                        fullWidth
+                        variant="contained"
 
-                        >
-                            Sign In
-                        </Button>}
+                    >
+                        Sign In
+                    </Button>}
 
-                    </Box>
                 </Box>
-            </Container>
-        </ThemeProvider>
+            </Box>
+        </Container>
     );
 }
