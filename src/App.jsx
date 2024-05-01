@@ -1,11 +1,11 @@
-import React, { useState } from 'react'
+import React from 'react'
 import './App.css'
 import SignIn from "./pages/SignIn.jsx";
 import {Route, Routes} from "react-router-dom";
 import Layout from "./components/Layout.jsx";
 import Public from "./pages/Public.jsx";
 import RequireAuth from "./features/auth/RequireAuth.jsx";
-import Welcome from "./pages/Welcome.jsx";
+
 import UsersList from "./components/UsersList.jsx";
 import AddPerson from "./pages/AddPerson.jsx";
 import EditPerson from "./pages/EditPerson.jsx";

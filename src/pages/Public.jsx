@@ -9,12 +9,14 @@ import Button from "@mui/material/Button";
 const Public = () => {
 
     const content = (
-        <Container maxWidth="sm">
+        <Container maxWidth="sm" sx={{}}>
             <CssBaseline />
             <Box sx={{
                 display: 'flex',
                 flexDirection: 'column',
                 alignItems: 'center',
+                height:'100vh',
+                justifyContent:'center'
             }} >
 
                 <Typography component="h1" variant="h3">

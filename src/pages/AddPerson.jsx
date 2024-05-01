@@ -30,7 +30,6 @@ export default function AddPerson({us,pass,fName,lName,act,reUse}) {
     const [edit] = useEditMutation()
 
     const [serverError, setServerError] = useState('')
-    const [serverSuccess, setServerSuccess] = useState('')
 
 
     const [user, setUser] = useState(us ||'');
@@ -47,11 +46,7 @@ export default function AddPerson({us,pass,fName,lName,act,reUse}) {
 
     const [active, setActive] = useState(act||false);
 
-    const handleActive = (e) => setActive(e.target.value)
-    const handleClose = () => {
-        setServerSuccess('')
-        setServerError('')
-    };
+    const handleActive = (e) => {setActive(e.target.checked)}
 
     const handleSubmit = async (e) => {
         e.preventDefault();
@@ -97,18 +92,18 @@ export default function AddPerson({us,pass,fName,lName,act,reUse}) {
         <Box
             component="form"
             sx={{
-                '& .MuiTextField-root': { m: 1, width: '25ch' },
+                '& .MuiTextField-root': { m: 1,},marginX:'auto',maxWidth:'400px',mt:5
             }}
             noValidate
             autoComplete="off"
             onSubmit={handleSubmit}
         >
-            <Button>
-                <Link to="/userslist">
-                    <ArrowBackIcon sx={{fontSize: 40}} />
-                </Link>
-            </Button>
-            <div style={{display:"flex",flexDirection:'column'}}>
+            <Box style={{display:"flex",flexDirection:'column'}}>
+                <Button sx={{justifyContent:'flex-start',alignSelf:'flex-start'}}>
+                    <Link to="/userslist">
+                        <ArrowBackIcon sx={{fontSize: 40}} />
+                    </Link>
+                </Button>
                 <h1>{(reUse) ?'Edit Person':'New Person'} </h1>
                 {serverError ? <Alert sx={{mt: 3, width: '100%'}} severity="error">{serverError}</Alert> : ''}
                 <TextField
@@ -146,17 +141,16 @@ export default function AddPerson({us,pass,fName,lName,act,reUse}) {
                     error={(!!passwordError)}
                     helperText={passwordError}
                 />
-                <FormControlLabel  control={<Checkbox />} onChange={handleActive} label="Active" />
+                <FormControlLabel  control={<Checkbox checked={active} onChange={handleActive}/>}  label="Active" />
                 <Button
                     disabled={checkerForBtn}
                     type="submit"
-                    fullWidth
                     variant="contained"
-                    sx={{ mt: 3, mb: 2 }}
+                    sx={{ mt: 3, mb: 2, }}
                 >
                     {(reUse)?'Save':'Add Person'}
                 </Button>
-            </div>
+            </Box>
 
         </Box>
 
