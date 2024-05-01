@@ -2,7 +2,7 @@ import {useEffect, useState} from "react";
 import {Link, useNavigate} from "react-router-dom";
 
 import Box from "@mui/material/Box";
-import {CircularProgress, SvgIcon} from "@mui/material";
+import {CircularProgress} from "@mui/material";
 import { DataGrid } from '@mui/x-data-grid';
 import AddBoxOutlinedIcon from '@mui/icons-material/AddBoxOutlined';
 
@@ -17,7 +17,7 @@ import TextField from '@mui/material/TextField';
 
 import { useGetUsersQuery } from "../app/requests/usersApiSlice.js"
 
-import {useDispatch, useSelector} from "react-redux";
+import {useDispatch} from "react-redux";
 import {addUsers} from "../app/users/usersSlice.js";
 import {useDeleteMutation} from "../app/requests/deleteUserApiSlice.js";
 
@@ -96,7 +96,6 @@ const UsersList = () => {
     }
     const refresh = () =>{
         refetch()
-        console.log(users)
     }
 
 
