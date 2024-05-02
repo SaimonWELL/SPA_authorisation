@@ -28,6 +28,7 @@
  ## <a name="tech-stack">⚙️ Стэк Технологий</a>
 
 - React.js
+- React-router
 - Redux
 - Redux Toolkit
 - Material UI
